@@ -1,35 +1,62 @@
 <!DOCTYPE html>
+
 <html lang="en-us">
+
 <head>
   <meta charset="UTF-8">
-  <title>Activity 1: Basic HTML Bio</title>
+  <title>Basic HTML Bio</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body>
   
-  <h1>Jewell Foster</h1>
+  <header>
+    <h1>Student Bio</h1>
+  </header>
 
-  <img width= "200" height= "200" src="DSC_0271.jpg" alt="Profile Pic" />
-  <br>
+  <main class="container">
+    <section id="main-bio">
+      <section id="figure">
+        <h2 id="bio-name">Jewell Foster</h2>
+        <img width= "200" height= "200" src="DSC_0271.jpg" alt="Jewell Foster">
+      </section>
 
-  <p>Intro paragraph</p>
+      <p>Intro paragraph</p>
   
-  <p>Into paragraph 2</p>
+      <p>Intro paragraph 2</p>
+    </section>
 
-  <ul>
-    <li><strong>Email</strong> <a href="#">jewell.n.foster@gmail.com</a></li>
-    <li><strong>Github</strong> <a href="#">jnfost</a></li>
-    <li><strong>LinkedIn</strong> <a href="#">jewell@linkedin</a></li>
-  </ul>
+    <aside id="contact-info">
+      <h2>Contact Info</h2>
+      <ul>
+        <li><strong>Email</strong> <a href="#">jewell.n.foster@gmail.com</a></li>
+        <li><strong>Github</strong> <a href="#">jnfost</a></li>
+        <li><strong>LinkedIn</strong> <a href="#">jewell@linkedin</a></li>
+      </ul>
+    </aside>
 
-  <table>
-    <tr>
-      <th></th>
-    </tr>
-  </table>
+    <table>
+      <tr>
+        <th></th>
+      </tr>
+    </table>
 
-  <a href="https://jnfost.github.io/my_project_1/">My First HTML</a>
-  <a href="https://jnfost.github.io/matplotlib_project/">My First HTML</a>
+
+  </main>
+
+  <section id="portfolio">
+    <h2>Portfolio</h2>
+    <div class="proj1">
+      <img width= "200" height="200" src="HTML_logo.png" alt="First HTML"><br>
+      <a href="https://jnfost.github.io/my_project_1/">My First HTML</a>
+    </div>
+
+    <div class="proj2">
+      <img width= "200" height="200" src="FinalTumorBoxPlot.png" alt="Box Plot"><br>
+      <a href="https://jnfost.github.io/matplotlib_project/">MatPlotLib HW</a>
+    </div>
+  </section>
+
 </body>
 
 </html>
