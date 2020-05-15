@@ -1,3 +1,82 @@
+body {
+    padding: 0;
+    margin: 0;
+    background-color: #efeee7;
+    color: #333333;
+    font-size: 18px;
+}
+
+header {
+    background: #333333;    
+}
+
+h1 {
+    padding: 0;
+    color:white;
+    font-size: 28px;
+    position: relative;
+    left: 43%
+}
+
+h2 {
+    font-size: 24px;
+    position: relative;
+    left: 40%
+}
+
+.container {
+    width: 1024px;
+    margin: 0 auto;
+}
+
+#main-bio {
+    float: left
+    width: 70%
+}
+
+h3 {
+    position: relative;
+    left: 10%;
+    font-size: 24px;}
+
+#contact-info {
+    position: relative;
+    left: 32%;
+    line-height: 35px;
+    color
+}
+
+/* #contact-info.link {
+    color: #d21034;
+} */
+
+#bio-image {
+    float: left;
+    margin-right: 50px;
+}
+
+/* #bio-name {
+    position: absolute;
+    top: 150px;
+    left: 30px;
+} */
+
+h4 {
+    font-size: 24px;
+    position: relative;
+    left: 46%
+}
+
 .proj1, .proj2 {
-    display: inline-block
+    display: inline-block;
+}
+
+.proj1 {
+    position: relative;
+    left: 30%
+}
+
+.proj2 {
+    position: relative;
+    left: 42%
 }
