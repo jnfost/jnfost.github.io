@@ -1,7 +1,7 @@
 body {
     padding: 0;
     margin: 0;
-    background-color: #555855d2;
+    background-color: #d0d3d0d2;
     color: #333333;
     font-size: 18px;
 }
@@ -24,10 +24,10 @@ h2 {
     left: 40%
 }
 
-.container {
+/* .container {
     width: 1024px;
     margin: 0 auto;
-}
+} */
 
 #main-bio {
     float: left
