@@ -20,13 +20,11 @@ header {
 h1 {
     padding: 0;
     color:white;
-    font-size: 28px;
     position: relative;
     left: 43%
 }
 
 h2 {
-    font-size: 40px;
     position: relative;
     left: 40%
 }
@@ -38,7 +36,7 @@ h2 {
 
 #main-bio {
     float: left
-    width: 70%;
+    width: 85%;
 }
 
 h3 {
