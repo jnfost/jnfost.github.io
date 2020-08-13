@@ -60,11 +60,10 @@ h3 {
     margin-right: 50px;
 }
 
-/* #bio-name {
-    position: absolute;
-    top: 150px;
-    left: 30px;
-} */
+#bio-name {
+    margin: 20px;
+    padding: 10px;
+}
 
 h4 {
     font-size: 24px;
