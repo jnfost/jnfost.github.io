@@ -11,6 +11,10 @@ body {
     margin:0;
 } */
 
+.navbar-brand {
+    font-size: small;
+}
+
 header {
     background: #fd3636;
     padding: 10;
