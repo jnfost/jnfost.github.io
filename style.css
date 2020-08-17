@@ -39,21 +39,21 @@ h2 {
 } */
 
 #main-bio {
-    float: left
-    width: 85%;
+    float: left;
+    padding-bottom: 5%;
 }
 
 h3 {
     position: relative;
     left: 10%;
-    font-size: 24px;}
+    font-size: 24px;
+}
 
-#contact-info {
+/* #contact-info {
     position: relative;
     left: 32%;
     line-height: 35px;
-    color
-}
+} */
 
 /* #contact-info.link {
     color: #d21034;
@@ -75,16 +75,11 @@ h4 {
     left: 46%
 }
 
-.proj1, .proj2 {
-    display: inline-block;
+#boston-image {
+    position: relative;
 }
 
-.proj1 {
-    position: relative;
-    left: 30%
-}
-
-.proj2 {
-    position: relative;
-    left: 42%
+.col-md-6 {
+    margin-right: 2%;
+    margin-left: 2%;
 }
