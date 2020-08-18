@@ -1,0 +1,260 @@
+<meta charset="utf-8">
+
+
+<script src="https://d3js.org/d3.v4.js"></script>
+
+
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <link rel="stylesheet" href="static/css/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meteorites</title>
+</head>
+
+<body>
+  <div class="navbar-container navbar-custom">
+  <nav class="navbar navbar-expand-lg navbar-light">
+   <a class="navbar-brand" href="index.html">METEORITES LANDING</a>
+   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+     <span class="navbar-toggler-icon"></span>
+   </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="index.html" id="navbarDropdown" role="button" 
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Charts
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="impact.html">Impact Map</a>
+                  <a class="dropdown-item" href="bubblechart.html">Bubble Chart</a>
+                  <a class="dropdown-item" href="barchart.html">Bar Chart</a>
+              </div>
+          </li> 
+
+          <li class="nav-item active">
+            <a class="nav-link" href="data.html">Data <span class="sr-only">(current)</span></a>
+          </li>
+        </ul>
+    </div>    
+  </nav>
+<div class="col-md-12 jumbotron text-center">
+  <h1>Bubble Chart</h1>
+<select id="selectButton" id="resetButton"></select>
+<div id="my_dataviz"></div>
+<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+
+
+<style>
+.bubbles {
+  stroke-width: 1px;
+  stroke: black;
+  opacity: .8
+}
+.bubbles:hover {
+  stroke: black;
+}
+h1 {text-align: center;}
+</style>
+
+
+<script>
+
+// set the dimensions and margins of the graph
+var margin = {top: 40, right: 150, bottom: 60, left: 70},
+    width = 1315 - margin.left - margin.right,
+    height = 550 - margin.top - margin.bottom;
+
+// append the svg object to the body of the page
+var svg = d3.select("#my_dataviz")
+  .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform",
+          "translate(" + margin.left + "," + margin.top + ")");
+
+//Read the data
+d3.csv("meteorites.csv", function(data) {
+
+      // List of groups (here I have one group per column)
+  var allGroup = d3.map(data, function(d){return(d.maincategory)}).keys()
+
+      // add the options to the button
+  d3.select("#selectButton")
+    .selectAll('myOptions')
+    .data(allGroup)
+    .enter()
+    .append('option')
+    .text(function (d) { return d; }) // text showed in the menu
+    .attr("value", function (d) { return d; }) // corresponding value returned by the button
+  
+      // A color scale: one color for each group
+      var myColor = d3.scaleOrdinal()
+      .domain(allGroup)
+      .range(d3.schemeSet1);
+  
+      // Add X axis --> it is a date format
+      var x = d3.scaleLinear()
+        .domain([1700, 2018])
+        .range([ 0, width ]);
+      svg.append("g")
+        .attr("transform", "translate(0," + height + ")")
+        .call(d3.axisBottom(x).tickSize(-height*1).ticks(12));
+  
+      // Add Y axis
+      var y = d3.scaleLinear()
+        .domain([0, d3.max(data, function(d) { return +d.mass; })])
+        .range([ height, 0 ]);
+      svg.append("g")
+        .call(d3.axisLeft(y).tickSize(-width*1).ticks(12));
+  
+        // Add a scale for bubble size
+      var z = d3.scaleSqrt()
+      .domain([2000, 13100000])
+      .range([ 5, 20]);
+  
+    // ---------------------------//
+    //      TOOLTIP               //
+    // ---------------------------//
+  
+    // -1- Create a tooltip div that is hidden by default:s
+    var tooltip = d3.select("#my_dataviz")
+      .append("div")
+        .style("opacity", 0)
+        .attr("class", "tooltip")
+        .style("background-color", "black")
+        .style("border-radius", "5px")
+        .style("padding", "10px")
+        .style("color", "white")
+  
+    // -2- Create 3 functions to show / update (when mouse move but stay on same circle) / hide the tooltip
+    var showTooltip = function(d) {
+      tooltip
+        .transition()
+        .duration(200)
+      tooltip
+        .style("opacity", 1)
+        .html("MAIN CATEGORY: " + d.maincategory + " RECCLASS: " + d.recclass + "  NAME: " + d.name + "  MASS(g): " + d.mass + "  YEAR: " + d.year)
+        .style("left", (d3.mouse(this)[0]+100) + "px")
+        .style("top", (d3.mouse(this)[1]+100) + "px")
+        .style("right", (d3.mouse(this)[2]+100) + "px")
+        .style("bottom", (d3.mouse(this)[3]+100) + "px")
+    }
+    var moveTooltip = function(d) {
+      tooltip
+        .style("left", (d3.mouse(this)[0]+100) + "px")
+        .style("top", (d3.mouse(this)[1]+100) + "px")
+        .style("right", (d3.mouse(this)[2]+100) + "px")
+        .style("bottom", (d3.mouse(this)[3]+100) + "px")
+    }
+    var hideTooltip = function(d) {
+      tooltip
+        .transition()
+        .duration(200)
+        .style("opacity", 0)
+    }
+
+  // Add dots
+  var bubble= svg
+    .append('g')
+    .selectAll("dot")
+    .data(data.filter(function(d){return d.maincategory==allGroup[0]}))
+    .enter()
+    .append("circle")
+      .attr("class", function(d) { return "bubbles " + d.maincategory })
+      .attr("cx", function (d) { return x(d.year); } )
+      .attr("cy", function (d) { return y(d.mass); } )
+      .attr("r", function (d) { return z(d.mass); } )
+      .style("fill", function (d) { return myColor(d.recclass); } )
+    // -3- Trigger the functions for hover
+    .on("mouseover", showTooltip )
+    .on("mousemove", moveTooltip )
+    .on("mouseleave", hideTooltip )
+
+    // A function that update the chart
+    function update(selectedGroup) {
+      var svg = d3.select("#my_dataviz").select("svg");
+      svg.remove();
+      svg = d3.select("#my_dataviz")
+        .append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform",
+          "translate(" + margin.left + "," + margin.top + ")");
+      // Create new data with the selection?
+      var dataFilter = data.filter(function (d) { return d.maincategory == selectedGroup });
+            // Add X axis --> it is a date format
+      var x = d3.scaleLinear()
+        .domain([d3.min(dataFilter, function(d) { return +d.year; }), d3.max(dataFilter, function(d) { return +d.year; })])
+        .range([ 0, width ]);
+      svg.append("g")
+        .attr("transform", "translate(0," + height + ")")
+        .call(d3.axisBottom(x).tickSize(-height*1).ticks(12));
+  
+      // Add Y axis
+      var y = d3.scaleLinear()
+        .domain([0, d3.max(dataFilter, function(d) { return +d.mass; })])
+        .range([ height, 0 ]);
+      svg.append("g")
+        .call(d3.axisLeft(y).tickSize(-width*1).ticks(12));
+  
+        // Add a scale for bubble size
+      var z = d3.scaleSqrt()
+      .domain([2000, 13100000])
+      .range([ 4, 20]);
+
+      var bubble= svg
+        .append('g')
+        .selectAll("dot")
+        .data(data.filter(function(d){return d.maincategory==selectedGroup}))
+        .enter()
+        .append("circle")
+          .attr("class", function(d) { return "bubbles " + selectedGroup })
+          .attr("cx", function (d) { return x(d.year); } )
+          .attr("cy", function (d) { return y(d.mass); } )
+          .attr("r", function (d) { return z(d.mass); } )
+          .style("fill", function (d) { return myColor(d.recclass); } )
+        // -3- Trigger the functions for hover
+        .on("mouseover", showTooltip )
+        .on("mousemove", moveTooltip )
+        .on("mouseleave", hideTooltip )  
+    }
+    
+// When the button is changed, run the updateChart function
+  d3.select("#selectButton").on("change", function(d) {
+          // recover the option that has been chosen
+  var selectedOption = d3.select(this).property("value")
+          // run the updateChart function with this selected option
+  update(selectedOption)
+  
+      })
+  
+  })
+</script>
+</div>
+<!-- end of middle section -->
+
+
+  <!-- beginning of footer -->
+  <div class="footer-container">
+     <ul class="footer-list">
+         <li class="footer-item">@ 2020 All Rights Reserved  --  </li>
+         <li class="footer-item">Developed by: Space Force Team</li>
+     </ul>
+  </div>
+  <!-- end of footer -->
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js"></script>
+  
+
+</body>
+</html>

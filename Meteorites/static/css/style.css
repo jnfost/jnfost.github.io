@@ -1,0 +1,347 @@
+
+* {
+  box-sizing: border-box;
+  font-family: Ubuntu, sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}  
+
+html body{
+  height: 100%;
+  width: 100%;
+  margin: 10px, 10px;
+  padding: 10px, 10px;
+  box-sizing: border-box;
+  background-color:lightgray;
+}
+.navbar-brand{
+  margin-right:3rem;
+  margin-left:3rem;
+  margin-bottom:0.3rem;
+  padding-left:1rem;
+  padding-right:1rem;
+}
+.navbar-brand:hover{
+  background-color:#4e575f;
+  border-color: white;
+  border-style:solid;
+}
+
+/* .navbar-dropdown:hover{
+  background-color:darkgray;
+  border-color: white;
+  border-style:solid;
+} */
+
+
+/* latitude navbar home button */
+.navbar-light .navbar-brand {
+  color: white;
+  background-color:#23415c;
+  border-color: white;
+  border-style: solid;
+}
+
+/* dropdown menu */
+.navbar-light .navbar-nav .active>.nav-link,
+ .navbar-light .navbar-nav .nav-link.active,
+  .navbar-light .navbar-nav .nav-link.show,
+   .navbar-light .navbar-nav .show>.nav-link{
+    color: white;
+}
+
+/* latitude navbar home button */
+.navbar-light .navbar-brand {
+    color: white;
+    background-color:#23415c;
+    border-color: white;
+    border-style: solid;
+}
+
+/* dropdown menu */
+.navbar-light .navbar-nav .nav-link{
+    color: white;
+}
+
+.navbar-light .navbar-toggler {
+    background-color: white;
+}
+.navbar{
+    background-color: #23415c;
+    border: 30px;
+}
+
+.middle-container{ 
+  padding: 0px;
+  margin: 0px;
+} 
+
+.page-body {
+  width: 100%;
+  background-color: white;
+  color: #23415c;
+margin-top: 40px;
+margin-bottom: 40px;
+  padding: 10px 30px 10px;
+}
+
+
+.visual-body {
+margin-top: 10px;
+margin-bottom: 10px;
+padding: 10px 30px 10px;
+color: white;
+background-color:white;
+}
+.page-title, .visual-title {
+padding-top: 15px; 
+padding-left: 4px;
+color: #23415c;
+font-size: 26px;
+font-weight: bold;
+font-family: Georgia, Times, "Times New Roman", serif;
+}
+body {
+    background: #eee;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  }
+  
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  li {
+    display: inline-block;
+    margin-right: 20px;
+  }
+
+h1 {
+    font-size: 65px;
+    padding: 10px;
+    margin: 0;
+    color:  #23415c;
+    text-align: center;
+  }
+
+h3 {
+    font-size: 40px;
+    padding: 10px;
+    margin: 0;
+    color:  #23415c;
+    text-align: left;
+  }
+
+h2 {
+    font-size: 30px;
+    padding: 20px;
+    margin: 0;
+    color: #000;
+    text-align: center;
+  }
+
+h4 {
+    font-size: 20px;
+    padding: 20px;
+    margin: 0;
+    color: #000;
+    text-align: center;
+  }
+
+  h5 {
+    font-size: 18px;
+    padding: 20px;
+    margin: 6;
+    color: #000;
+    text-align: center;
+  }
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+
+.responsive {
+    width: 100%;
+    height: auto;
+  }
+
+* {
+    box-sizing: border-box;
+  }
+  
+.column {
+    float: left;
+    width: 50%;
+    padding: 10px;
+  }
+  
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .footer-container{
+    display: flex;
+    flex-basis: 100%;
+    min-height: 80px;
+    background-color: #23415c;
+    color: white;
+    align-items: center;
+  
+  
+    justify-content: space-evenly;
+    flex-flow: block;
+    padding: 10px;
+    margin:10px;
+  }
+ .navbar {
+  padding: 15px;
+  margin: 0;
+}
+/* This CSS styles the ufo icon in the navbar */
+.nav-ufo {
+  position: absolute;
+  bottom: 5px;
+  left: 150px;
+  width: 35px;
+  color: white;
+}
+@keyframes myanim{
+  0%, 100%{
+    background-image: url('../images/asteroid-grey.png');
+  }
+  33%{
+    background-image: url('../images/space-rocks.jpg');
+  } 
+  66%{
+    background-image: url('../images/asteroide-line.jpg');
+  }         
+}
+  .hero h2 {
+  animation: smaller-title 1.2s forwards linear;
+}
+.hero {
+  position: relative;
+  height: 200px;
+  padding: 20px;
+  margin-top: 200px;
+  margin: 0;
+  color: white;
+  background-image: url("/images/asteroide-line.jpg"); 
+  background-attachment: fixed;
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  animation: myanim 25s ease-in-out infinite;
+}
+
+.hero {
+  position: relative;
+  height: 250px;
+  padding: 20px;
+  margin-top: 200px;
+  margin: 0;
+  color: white;
+  background-image: url("../images/asteroide-line.jpg"); 
+  background-attachment: fixed;
+  background-position: bottom center;
+  background-size: cover;
+  animation: myanim 25s ease-in-out infinite;
+}
+
+.hero h1 {
+  margin-top: 150px;
+  font-size: 1.5rem;
+  animation: title 20s forwards alternate-reverse;
+  animation-iteration-count: infinite;
+}
+
+.hero h3 {
+  margin-top: 70px;
+  font-size: 1rem;
+  animation: title 30s forwards alternate-reverse;
+  animation-iteration-count: infinite;
+}
+
+.hero p {
+  margin-top: 40px;
+  font-size: 1rem;
+  animation: subtitle 35s forwards alternate-reverse;
+  animation-delay: 5s;
+  animation-iteration-count: infinite;
+}
+/* keyframe animations which will be used to animate the title */
+@keyframes title {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    font-size: 3.0rem;
+    opacity: 1;
+  }
+}
+
+
+@keyframes smaller-title {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    font-size: 2.0rem;
+    opacity: 1;
+  }
+}
+
+@keyframes subtitle {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1.2;
+  }
+}
+
+/**********************************************************
+
+
+
+
+
+/* media queries */
+
+@media screen and (max-width: 780px){
+  .navbar{
+      background-color:rgb(1, 1, 49);
+      font-size:0.7em;
+  }
+  .table{
+      font-size:0.8em;
+  } 
+  .footer-container{
+      background-color:rgb(1, 1, 49);
+      font-size:0.7em;
+  }  
+}
+
+@media screen and (max-width: 520px){
+  .navbar{
+      background-color:rgb(1, 1, 49);
+      font-size:0.6em;
+  }
+  .table{
+      font-size:0.6em;
+  }   
+}

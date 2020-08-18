@@ -1,0 +1,278 @@
+* {
+  box-sizing: border-box;
+  font-family: Ubuntu, sans-serif;
+}
+
+html,
+body {
+  position: relative;
+  height: 25%;
+  padding: 0;
+  margin: 0;
+  color: #ffffff;
+}
+
+/* The wrapper contains all of the page's content besides the footer, which is pushed to the bottom of the page */
+.wrapper {
+  position: relative;
+  min-height: 100%;
+  padding-bottom: 100px;
+  overflow: auto;
+}
+
+/* The footer is positioned at the bottom of the page */
+.footer-container{
+  right: 0;
+  bottom: 0;
+  left: 0;
+  min-height: 20px;
+  background: #23415c;
+}
+
+
+.bottom {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  color: #ffffff;
+  padding: 5px;
+  background: #23415c;
+}
+
+/* The code styles the text at the bottom of the footer */
+
+
+.navbar-brand{
+  margin-right:3rem;
+  margin-left:3rem;
+  margin-bottom:0.3rem;
+  padding-left:1rem;
+  padding-right:1rem;
+}
+.navbar-brand:hover{
+  background-color:#4e575f;
+  border-color: white;
+  border-style:solid;
+}
+
+/* .navbar-dropdown:hover{
+  background-color:darkgray;
+  border-color: white;
+  border-style:solid;
+} */
+
+
+/* latitude navbar home button */
+.navbar-light .navbar-brand {
+  color: white;
+  background-color:#23415c;
+  border-color: white;
+  border-style: solid;
+}
+
+/* dropdown menu */
+.navbar-light .navbar-nav .active>.nav-link,
+ .navbar-light .navbar-nav .nav-link.active,
+  .navbar-light .navbar-nav .nav-link.show,
+   .navbar-light .navbar-nav .show>.nav-link{
+    color: white;
+}
+
+/* latitude navbar home button */
+.navbar-light .navbar-brand {
+    color: white;
+    background-color:#23415c;
+    border-color: white;
+    border-style: solid;
+}
+
+/* dropdown menu */
+.navbar-light .navbar-nav .nav-link{
+    color: white;
+}
+
+.navbar-light .navbar-toggler {
+    background-color: white;
+}
+.navbar{
+    background-color: #23415c;
+    border: 30px;
+}
+
+
+/* Adding styles to the aside and filter form */
+.ufo-form {
+  margin-top: 50px;
+}
+
+.filters .panel-body {
+  padding: 0;
+}
+
+.filters {
+  margin-top: 10px;
+}
+
+select {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  color: #8e979f;
+  outline: none;
+}
+
+#table-area th {
+  text-align: center;
+}
+
+#table-area th:first-child,
+#table-area th:nth-child(2),
+#table-area th:nth-child(6) {
+  min-width: 100px;
+}
+
+.loader {
+  margin-top: 50px;
+}
+
+.margin-top-50 {
+  margin-top: 50px;
+  background: #ffffff;
+}
+
+/* The styles for the parallax */
+.hero {
+  position: relative;
+  height: 200px;
+  padding: 20px;
+  margin: 0;
+  background: black;
+  background-image: url("meteor2.jpg");
+  background-attachment: fixed;
+  background-position: bottom center;
+  background-size: cover;
+}
+
+.hero h1 {
+  margin-top: 50px;
+  font-size: 0.1rem;
+  animation: title 1.2s forwards linear;
+}
+
+.hero p {
+  font-size: 2rem;
+  opacity: 0;
+  animation: subtitle 1.2s forwards linear;
+  animation-delay: 1.2s;
+}
+
+/* input placeholder color changes */
+.form-control::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: #8e979f;
+}
+
+.form-control::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #8e979f;
+}
+
+.form-control:-ms-input-placeholder {
+  /* IE 10+ */
+  color: #8e979f;
+}
+
+.form-control:-moz-placeholder {
+  /* Firefox 18- */
+  color: #8e979f;
+}
+
+/* media queries which will only be activated at specific screen sizes */
+@media (max-width: 800px) {
+  #table-area td {
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 500px) {
+  #table-area thead {
+    display: none;
+    color: black
+  }
+
+  #table-area tr td:first-child {
+    font-size: 1.8em;
+    font-weight: bold;
+    background: #3d211a;
+    color: black;
+  }
+
+  #table-area tr td:last-child {
+    margin-bottom: 20px;
+  }
+
+  #table-area tr td:last-child::after {
+    display: block;
+    width: 80%;
+    height: 1px;
+    margin-top: 20px;
+    content: " ";
+    background: rgb(240, 248, 255);
+  }
+
+  #table-area td {
+    font-size: 1.25em;
+  }
+
+  #table-area tbody td {
+    display: block;
+    text-align: center;
+  }
+
+  #table-area tbody td::before {
+    display: block;
+    font-size: 1.4em;
+    font-weight: bold;
+    text-align: center;
+    content: attr(data-th);
+  }
+
+  .hero h1 {
+    animation: smaller-title 1.2s forwards linear;
+  }
+}
+
+/* keyframe animations which will be used to animate the title */
+@keyframes title {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    font-size: 7.5rem;
+    opacity: 1;
+  }
+}
+
+@keyframes smaller-title {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    font-size: 5.5rem;
+    opacity: 1;
+  }
+}
+
+@keyframes subtitle {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
